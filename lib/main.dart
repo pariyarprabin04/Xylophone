@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const XylophoneApp());
@@ -24,17 +24,19 @@ class XylophoneScreen extends StatefulWidget {
 }
 
 class _XylophoneScreenState extends State<XylophoneScreen> {
-
-  Widget drawRect(Color rectColor, double rectHeight, double hz){
+  Widget drawRect({
+    required Color rectColor,
+    required double rectHeight,
+    required double hz,
+  }) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: hz, vertical: 10.0),
-      child : Container(
+      child: Container(
         height: rectHeight,
         decoration: BoxDecoration(
           color: rectColor,
           borderRadius: BorderRadius.circular(5),
         ),
-
       ),
     );
   }
@@ -42,17 +44,19 @@ class _XylophoneScreenState extends State<XylophoneScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(backgroundColor: Colors.white,
+      home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.teal,
-        centerTitle: true,
-        elevation: 5,
-        title: Text('Xylophone',
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.white,
-            fontWeight: FontWeight.bold
-          ),
+          centerTitle: true,
+          elevation: 5,
+          title: Text(
+            'Xylophone',
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
 
@@ -60,19 +64,38 @@ class _XylophoneScreenState extends State<XylophoneScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              drawRect(const Color.fromARGB(255, 235, 6, 6),60, 20),
-              drawRect(const Color.fromARGB(255, 30, 73, 20),60, 40),
-              drawRect(const Color.fromARGB(255, 70, 219, 33),60, 50),
-              drawRect(const Color.fromARGB(255, 25, 151, 173),60, 70),
-              drawRect(const Color.fromARGB(255, 128, 186, 209),60, 90),
-              drawRect(const Color.fromARGB(255, 160, 14, 128),60, 130),
-              drawRect(const Color.fromARGB(255, 175, 36, 194),60, 150),
+              drawRect(
+                rectColor: const Color.fromARGB(255, 235, 6, 6),rectHeight: 60,hz: 20),
+              drawRect(
+                rectColor: const Color.fromARGB(255, 30, 73, 20),rectHeight: 60, hz: 40,),
+              drawRect(
+                rectColor: const Color.fromARGB(255, 70, 219, 33),
+                rectHeight: 60,
+                hz: 50,
+              ),
+              drawRect(
+                rectColor: const Color.fromARGB(255, 25, 151, 173),
+                rectHeight: 60,
+                hz: 70,
+              ),
+              drawRect(
+                rectColor: const Color.fromARGB(255, 128, 186, 209),
+                rectHeight: 60,
+                hz: 90,
+              ),
+              drawRect(
+                rectColor: const Color.fromARGB(255, 160, 14, 128),
+                rectHeight: 60,
+                hz: 130,
+              ),
+              drawRect(
+                rectColor: const Color.fromARGB(255, 175, 36, 194),
+                rectHeight: 60,
+                hz: 150,
+              ),
             ],
           ),
-          
-          
         ),
-
       ),
     );
   }
